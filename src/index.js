@@ -1,12 +1,19 @@
 import dotenv from "dotenv";
+import dns from 'node:dns';
+import express from "express"
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 // import mongoose from "mongoose";
 // import {DB_NAME} from "./constants";
 import connectDB from "./db/index.js";
 
+const app = express();
+
 dotenv.config({
-    path : "./env"
+    path : "./env" // path: "./.env"
 })
+
+// console.log("DB URI:", process.env.MONGODB_URI);
 
 connectDB()
 .then(() => {
