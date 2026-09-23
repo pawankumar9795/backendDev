@@ -33,7 +33,7 @@ const userSchema = new Schema(
             type : String
         },
         watchHistory: {
-            type : Schema.Types.ObjectID,
+            type : Schema.Types.ObjectId,
             ref : "Video"
         },
         password: {
@@ -71,7 +71,7 @@ userSchema.methods.generateAccessToken = function () {
         email : this.email,
         username : this.username,
         fullName : this.fullName
-
+        //this block is custom payload
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
